@@ -19,11 +19,16 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('accounts.urls')),
+    path('blog/', include('blog.urls')),
+    path('blog_api/', include('blog_api.urls')),
 ]
 
+
+# デバッグ関係
 if settings.DEBUG:
     import debug_toolbar
 
     urlpatterns += [
-        path('__debug__/', include(debug_toolbar.urls)),
+        path('__debug__/', include(debug_toolbar.urls))
     ]

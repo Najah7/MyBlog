@@ -1,5 +1,10 @@
 from .base import *
 
+'''
+local環境で追加したものリスト
+・django-toolbar（デバッグ用）
+'''
+
 DEBUG = True
 
 if DEBUG:
