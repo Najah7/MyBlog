@@ -1,0 +1,2 @@
+# MyBlog
+Djangoで作ったブログ
