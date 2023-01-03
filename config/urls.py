@@ -18,10 +18,13 @@ from django.urls import path, include
 from django.conf import settings
 
 urlpatterns = [
+    # path('', ) ←TODO:何も指定しない場合どうする
     path('admin/', admin.site.urls),
-    path('accounts/', include('accounts.urls')),
-    path('blog/', include('blog.urls')),
-    path('blog_api/', include('blog_api.urls')),
+    path('api-auth/', include('rest_framework.urls')),
+    # path('accounts/', include('accounts.urls')),
+    # path('blog/', include('blog.urls')),
+    # path('blog_api/', include('blog_api.urls')),
+
 ]
 
 
