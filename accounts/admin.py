@@ -8,7 +8,7 @@ from .models import CustomUser
 
 class CustomUserAdmin(UserAdmin):
     fieldsets = (
-        (None, {'fields': ('username', 'password', 'favorite_programming', 'login_count')}),
+        (None, {'fields': ('username', 'password', 'favorite_programming_lang', 'login_count')}),
         (gettext_lazy('Personal info'), {'fields': ('first_name', 'last_name', 'email', 'gender', 'age', 'profile_image')}),
         (gettext_lazy('Important dates'), {'fields': ('last_login', 'date_joined')}),
     )

@@ -17,10 +17,12 @@ class BlogPost(models.Model):
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(verbose_name='タイトル', max_length=30, unique=True, null=False)
-    # articleはファイルにするか迷い中
+    # articleはファイルした方がいいかも
     article = models.TextField(verbose_name='記事')
-    thumbnail = models.ImageField(verbose_name='サムネ用の写真', null=True, upload_to='image/')
+    # TODO:django-imagekitに変更。
+    # imageフィールドがapiでjsonで返せないのでそこの所をいい感じにする必要あり。（多分、画像のurlを送って、frontからgetしてもらう感じかな？）
+    # thumbnail = models.ImageField(verbose_name='サムネ用の写真', null=True, upload_to='image/')
     short_description = models.CharField(verbose_name='軽い説明のテキスト', max_length=100, null=True)
     created_at = models.DateTimeField(verbose_name='登録日時', auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='更新日')
-    n_goods = models.ImageField(verbose_name='いいね', default=0)
+    n_goods = models.IntegerField(verbose_name='いいね', default=0)
