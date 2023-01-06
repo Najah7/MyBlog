@@ -21,7 +21,7 @@ class BlogPostListAPIView(generics.ListAPIView):
     queryset = BlogPost.objects.all()
     serializer_class = BlogPostSerializer
     filter_backends = [filters.DjangoFilterBackend]
-    filterset_fields = '__all__'
+    filterset_fields = ['id', 'title', 'article', 'short_description','created_at', 'updated_at', 'n_goods']
 
 
 class BlogPostRetrieveAPIView(generics.RetrieveAPIView):

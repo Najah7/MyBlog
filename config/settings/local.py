@@ -18,5 +18,5 @@ if DEBUG:
         'debug_toolbar.middleware.DebugToolbarMiddleware'
     )
     DEBUG_TOOLBAR_CONFIG = {
-        'SHOW_TOOLBAR_CALLBACK' : show_toolbar,
+        'SHOW_TOOLBAR_CALLBACK': show_toolbar,
     }
