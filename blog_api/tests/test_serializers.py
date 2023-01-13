@@ -1,9 +1,9 @@
 import uuid
 
 from django.test import TestCase
-from django.utils.timezone import localtime
+# from django.utils.timezone import localtime
 
-from ..models import BlogPost
+# from ..models import BlogPost
 from ..serializers import BlogPostSerializer
 
 class TestBlogPostSerializer(TestCase):
@@ -12,7 +12,7 @@ class TestBlogPostSerializer(TestCase):
     def test_input_vaild(self):
         """入力データのバリデーション（OK）"""
 
-        input_data = {
+        true_input_data = {
             "id": uuid.uuid4(),
             "title": "test",
             "article": "test",
@@ -24,6 +24,17 @@ class TestBlogPostSerializer(TestCase):
             "n_goods": 0
         }
 
-        serializer = BlogPostSerializer(data=input_data)
+        false_input_data = {
+            "title": "test",
+        }
+
+        serializer = BlogPostSerializer(data=true_input_data)
 
         self.assertTrue(serializer.is_valid())
+
+
+        # TODO:しっかり分けて
+        serializer = BlogPostSerializer(data=false_input_data)
+
+        self.assertFalse(serializer.is_valid())
+
