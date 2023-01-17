@@ -18,15 +18,24 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
+from rest_framework_simplejwt import views
+
+"""NOTE:djoserについてのメモ↓
+      api-auth/jwt/create/：トークン取得
+      api-auth/jwt/refresh/：トークン再取得
+      api-auth/jwt/verify/：トークン検証"""
+
+
 urlpatterns = [
     # path('', ) ←TODO:何も指定しない場合どうする
     path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls')),
+    path('api-auth/jwt/', views.TokenObtainPairView.as_view()),
+    path('api-auth/', include('djoser.urls.jwt')),
+    path('api/blog/', include('blog_api.urls')),
     # path('accounts/', include('accounts.urls')),
     # path('blog/', include('blog.urls')),
-    path('api/blog/', include('blog_api.urls')),
-
 ]
+
 
 
 # デバッグ関係
